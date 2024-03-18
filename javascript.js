@@ -30,8 +30,15 @@ let getComputerChoice = function() {
 
 console.log(getComputerChoice());
 
+// Ask the user to enter their selection
+let playerSelection = function() {
+    let choice = prompt("Choose Rock, Paper or Scissors:");
+    // Make the player's selection case-insensitive
+    choice = choice.toLowerCase();
+    return choice;
+}
+console.log(playerSelection())
+
 // Play a round of rock paper scissors
-    // Ask the user to enter their selection
-    // Store that choice in a variable
     // Compare the user's choice to the computer's choice
     // Display the winner of the round in the console
