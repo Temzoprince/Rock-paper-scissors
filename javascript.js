@@ -27,11 +27,11 @@ let getComputerChoice = function() {
         return "scissors";
     }
 }
+// console.log(getComputerChoice());
 
-console.log(getComputerChoice());
 
 // Ask the user to enter their selection
-let playerSelection = function() {
+let getPlayerChoice = function() {
     
     // Player must enter rock, paper or scissors
     let wrongChoice = true;
@@ -47,8 +47,31 @@ let playerSelection = function() {
 
     return choice;
 }
-console.log(playerSelection());
+// console.log(getPlayerChoice());
+
 
 // Play a round of rock paper scissors
+
+function playRound(computerSelection, playerSelection) {
     // Compare the user's choice to the computer's choice
+    if ((computerSelection === "rock") && (playerSelection === "rock")) {
+        console.log("Draw! Both Players chose Rock");
+        return "Draw! Both Players chose Rock";
+    } else if ((computerSelection === "rock") && (playerSelection === "paper")) {
+        console.log("You Win! Paper beats Rock")
+        return "You Win! Paper beats Rock"
+    } else if ((computerSelection === "rock") && (playerSelection === "scissors")) {
+        console.log("You Lose! Rock beats Scissors")
+        return "You Lose! Rock beats Scissors"
+    }
+
+    // if (getComputerChoice === "paper") {
+    //     //
+    // }
+
+    // if (getComputerChoice === "scissors") {
+
+    // }
+}
     // Display the winner of the round in the console
+    console.log(playRound(getComputerChoice(), getPlayerChoice()))
