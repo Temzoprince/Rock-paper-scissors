@@ -54,24 +54,43 @@ let getPlayerChoice = function() {
 
 function playRound(computerSelection, playerSelection) {
     // Compare the user's choice to the computer's choice
+    console.log(computerSelection)
+
+    // When Computer chooses Rock
     if ((computerSelection === "rock") && (playerSelection === "rock")) {
         console.log("Draw! Both Players chose Rock");
         return "Draw! Both Players chose Rock";
     } else if ((computerSelection === "rock") && (playerSelection === "paper")) {
         console.log("You Win! Paper beats Rock")
-        return "You Win! Paper beats Rock"
+        return "You Win! Paper beats Rock";
     } else if ((computerSelection === "rock") && (playerSelection === "scissors")) {
         console.log("You Lose! Rock beats Scissors")
-        return "You Lose! Rock beats Scissors"
+        return "You Lose! Rock beats Scissors";
     }
 
-    // if (getComputerChoice === "paper") {
-    //     //
-    // }
+    // When Computer Chooses Paper
+    if ((computerSelection === "paper") && (playerSelection === "rock")) {
+        console.log("You Lose! Paper beats Rock");
+        return "You Lose! Paper beats Rock";
+    } else if ((computerSelection === "paper") && (playerSelection === "paper")) {
+        console.log("Draw! Both Players chose Paper")
+        return "Draw! Both Players chose Paper";
+    } else if ((computerSelection === "paper") && (playerSelection === "scissors")) {
+        console.log("You Win! Scissors beats Paper")
+        return "You Win! Scissors beats Paper";
+    }
 
-    // if (getComputerChoice === "scissors") {
-
-    // }
+    // When Computer Chooses Scissors
+    if ((computerSelection === "scissors") && (playerSelection === "rock")) {
+        console.log("You Win! Rock beats Scissors");
+        return "You Win! Rock beats Scissors";
+    } else if ((computerSelection === "scissors") && (playerSelection === "paper")) {
+        console.log("You Lose! Scissors beats Rock")
+        return "You Lose! Scissors beats Rock";
+    } else if ((computerSelection === "scissors") && (playerSelection === "scissors")) {
+        console.log("Draw! Both Players chose Scissors")
+        return "Draw! Both Players chose Scissors";
+    }
 }
     // Display the winner of the round in the console
     console.log(playRound(getComputerChoice(), getPlayerChoice()))
