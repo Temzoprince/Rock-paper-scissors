@@ -15,6 +15,21 @@ Paper beats Rock
 */
 
 // Get the computers choice - a random choice of rock, paper or scissors
+let getComputerChoice = function() {
+    let choice = Math.floor(Math.random() * 3);
+    console.log(choice);
+
+    if (choice === 0) {
+        return "rock";
+    } else if (choice === 1) {
+        return "paper"
+    } else {
+        return "scissors";
+    }
+}
+
+console.log(getComputerChoice());
+
 // Play a round of rock paper scissors
     // Ask the user to enter their selection
     // Store that choice in a variable
