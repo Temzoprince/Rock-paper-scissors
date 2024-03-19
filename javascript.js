@@ -57,38 +57,38 @@ function playRound(computerSelection, playerSelection) {
     console.log(computerSelection)
 
     // When Computer chooses Rock
+        // If you choose rock, it's a draw
     if ((computerSelection === "rock") && (playerSelection === "rock")) {
-        console.log("Draw! Both Players chose Rock");
         return "Draw! Both Players chose Rock";
+        // If you choose paper, you win
     } else if ((computerSelection === "rock") && (playerSelection === "paper")) {
-        console.log("You Win! Paper beats Rock")
         return "You Win! Paper beats Rock";
+        // If you choose scissors, you lose
     } else if ((computerSelection === "rock") && (playerSelection === "scissors")) {
-        console.log("You Lose! Rock beats Scissors")
         return "You Lose! Rock beats Scissors";
     }
 
     // When Computer Chooses Paper
+        // If you choose rock, you lose
     if ((computerSelection === "paper") && (playerSelection === "rock")) {
-        console.log("You Lose! Paper beats Rock");
         return "You Lose! Paper beats Rock";
+        // If you choose paper, it's a draw
     } else if ((computerSelection === "paper") && (playerSelection === "paper")) {
-        console.log("Draw! Both Players chose Paper")
         return "Draw! Both Players chose Paper";
+        // If you choose scissors, you win
     } else if ((computerSelection === "paper") && (playerSelection === "scissors")) {
-        console.log("You Win! Scissors beats Paper")
         return "You Win! Scissors beats Paper";
     }
 
     // When Computer Chooses Scissors
+        // If you choose rock, you win
     if ((computerSelection === "scissors") && (playerSelection === "rock")) {
-        console.log("You Win! Rock beats Scissors");
         return "You Win! Rock beats Scissors";
+        // If you choose paper, you lose
     } else if ((computerSelection === "scissors") && (playerSelection === "paper")) {
-        console.log("You Lose! Scissors beats Rock")
-        return "You Lose! Scissors beats Rock";
+        return "You Lose! Scissors beats Paper";
+        // If you choose scissors, it's a draw
     } else if ((computerSelection === "scissors") && (playerSelection === "scissors")) {
-        console.log("Draw! Both Players chose Scissors")
         return "Draw! Both Players chose Scissors";
     }
 }
