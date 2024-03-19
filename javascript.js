@@ -101,9 +101,8 @@ function playRound(computerSelection, playerSelection) {
         return "draw";
     }
 }
-    // Display the winner of the round in the console
-    // console.log(playRound(getComputerChoice(), getPlayerChoice()))
-
+    // Play a game of Rock, Paper Scissors
+    
     function playGame() {
         alert("Welcome to Rock Paper Scissors");
         // Set two variables to record your score and the computer's score
