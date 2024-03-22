@@ -155,6 +155,7 @@ resultsDiv.style.cssText = "display: flex; flex-direction: column;"
 const displayPlayerChoice = document.createElement('span')
 const displayComputerChoice = document.createElement('span')
 const displayRoundWinner = document.createElement('span')
+const displayScore = document.createElement('span')
 const displayOverallWinner = document.createElement('span')
 
 displayPlayerChoice.textContent = 'Player chose ...'
@@ -163,6 +164,7 @@ displayComputerChoice.textContent = 'Computer chose ...'
 resultsDiv.appendChild(displayPlayerChoice)
 resultsDiv.appendChild(displayComputerChoice)
 resultsDiv.appendChild(displayRoundWinner)
+resultsDiv.appendChild(displayScore)
 resultsDiv.appendChild(displayOverallWinner)
 
 playerButtons.appendChild(resultsDiv)
@@ -175,6 +177,12 @@ let computerScore = 0;
 // Buttons play a round
 
 playerButtons.addEventListener('click', (event) => {
+    // Reset score if game previously won
+    if ((playerScore === 5) || (computerScore === 5)) {
+        playerScore = 0;
+        computerScore = 0;
+    }
+
     let target = event.target;
 
     let compChoice = getComputerChoice();
@@ -203,10 +211,19 @@ playerButtons.addEventListener('click', (event) => {
             break;
     }
 
+    // Update the results (score and winner message)
     console.log(`\nResult is: ${result}`)
     displayRoundWinner.textContent = roundWinnerMessage(result)
 
+    if (result === 'win') {
+        playerScore++
+    } else if (result === 'lose') {
+        computerScore++
+    }
+
     console.log(`Score is: Player: ${playerScore} - Computer: ${computerScore}`)
+    displayScore.textContent = `Score: Player: ${playerScore} - Computer: ${computerScore}`
+
     displayOverallWinner.textContent = overallWinnerMessage(playerScore, computerScore)
 })
 
