@@ -125,3 +125,19 @@ function playRound(computerSelection, playerSelection) {
 //     }
 // }
 // playGame();
+
+const rockButton = document.querySelector('#rock')
+const paperButton = document.querySelector('#paper')
+const scissorsButton = document.querySelector('#scissors')
+
+rockButton.addEventListener('click', () => {
+    console.log('Player chose Rock!')
+})
+
+paperButton.addEventListener('click', () => {
+    console.log('Player chose paper!')
+})
+
+scissorsButton.addEventListener('click', () => {
+    console.log('Player chose scissors!')
+})
