@@ -126,21 +126,51 @@ function playRound(computerSelection, playerSelection) {
 
 const playerButtons = document.querySelector('#selectionBtns')
 
+// Display the player and computer's choice
+
+const resultsDiv = document.createElement('div')
+resultsDiv.classList.add('results')
+
+resultsDiv.style.cssText = "display: flex; flex-direction: column;"
+
+const playerChoice = document.createElement('span')
+const computerChoice = document.createElement('span')
+
+playerChoice.textContent = 'Player chose ...'
+computerChoice.textContent = 'Computer chose ...'
+
+resultsDiv.appendChild(playerChoice)
+resultsDiv.appendChild(computerChoice)
+
+playerButtons.appendChild(resultsDiv)
+
 playerButtons.addEventListener('click', (event) => {
     let target = event.target;
 
+    let compChoice = getComputerChoice();
+    console.log('\nComputer from variable ' + compChoice)
     switch(target.id) {
         case 'rock':
+            console.log('target id: ' + target.id)
             console.log('\nPlayer chose rock!')
-            playRound(getComputerChoice(), getPlayerChoice('rock'))
+            playerChoice.textContent = 'Player chose rock'
+            computerChoice.textContent = `Computer chose ${compChoice}`
+            playRound(compChoice, getPlayerChoice('rock'))
             break;
         case 'paper':
+            console.log('target id: ' + target.id)
             console.log('\nPlayer chose paper!')
-            playRound(getComputerChoice(), getPlayerChoice('paper'))
+            playerChoice.textContent = 'Player chose paper'
+            computerChoice.textContent = `Computer chose ${compChoice}`
+            playRound(compChoice, getPlayerChoice('paper'))
             break;
         case 'scissors':
+            console.log('target id: ' + target.id)
             console.log('\nPlayer chose scissors!')
-            playRound(getComputerChoice(), getPlayerChoice('scissors'))
+            playerChoice.textContent = 'Player chose scissors'
+            computerChoice.textContent = `Computer chose ${compChoice}`
+            playRound(compChoice, getPlayerChoice('scissors'))
             break;
     }
 })
+
