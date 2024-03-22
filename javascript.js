@@ -88,6 +88,25 @@ function playRound(computerSelection, playerSelection) {
         return "draw";
     }
 }
+
+function roundWinnerMessage(result) {
+    if (result === "win") {
+        return "You won the round!"
+    } else if (result === "lose") {
+        return "You lost the round!"
+    } else {
+        return "This round was a draw"
+    }
+}
+
+function overallWinnerMessage(playerScore, computerScore) {
+    if (playerScore === 5) {
+        return "You Win! Congratulations!"
+    } else if (computerScore === 5) {
+        return "You lose. Try again next time."
+    }
+}
+
     // Play a game of Rock, Paper Scissors
 
 // function playGame() {
@@ -133,16 +152,27 @@ resultsDiv.classList.add('results')
 
 resultsDiv.style.cssText = "display: flex; flex-direction: column;"
 
-const playerChoice = document.createElement('span')
-const computerChoice = document.createElement('span')
+const displayPlayerChoice = document.createElement('span')
+const displayComputerChoice = document.createElement('span')
+const displayRoundWinner = document.createElement('span')
+const displayOverallWinner = document.createElement('span')
 
-playerChoice.textContent = 'Player chose ...'
-computerChoice.textContent = 'Computer chose ...'
+displayPlayerChoice.textContent = 'Player chose ...'
+displayComputerChoice.textContent = 'Computer chose ...'
 
-resultsDiv.appendChild(playerChoice)
-resultsDiv.appendChild(computerChoice)
+resultsDiv.appendChild(displayPlayerChoice)
+resultsDiv.appendChild(displayComputerChoice)
+resultsDiv.appendChild(displayRoundWinner)
+resultsDiv.appendChild(displayOverallWinner)
 
 playerButtons.appendChild(resultsDiv)
+
+
+let result;
+let playerScore = 0;
+let computerScore = 0;
+
+// Buttons play a round
 
 playerButtons.addEventListener('click', (event) => {
     let target = event.target;
@@ -153,24 +183,30 @@ playerButtons.addEventListener('click', (event) => {
         case 'rock':
             console.log('target id: ' + target.id)
             console.log('\nPlayer chose rock!')
-            playerChoice.textContent = 'Player chose rock'
-            computerChoice.textContent = `Computer chose ${compChoice}`
-            playRound(compChoice, getPlayerChoice('rock'))
+            displayPlayerChoice.textContent = 'Player chose rock'
+            displayComputerChoice.textContent = `Computer chose ${compChoice}`
+            result = playRound(compChoice, getPlayerChoice('rock'))
             break;
         case 'paper':
             console.log('target id: ' + target.id)
             console.log('\nPlayer chose paper!')
-            playerChoice.textContent = 'Player chose paper'
-            computerChoice.textContent = `Computer chose ${compChoice}`
-            playRound(compChoice, getPlayerChoice('paper'))
+            displayPlayerChoice.textContent = 'Player chose paper'
+            displayComputerChoice.textContent = `Computer chose ${compChoice}`
+            result = playRound(compChoice, getPlayerChoice('paper'))
             break;
         case 'scissors':
             console.log('target id: ' + target.id)
             console.log('\nPlayer chose scissors!')
-            playerChoice.textContent = 'Player chose scissors'
-            computerChoice.textContent = `Computer chose ${compChoice}`
-            playRound(compChoice, getPlayerChoice('scissors'))
+            displayPlayerChoice.textContent = 'Player chose scissors'
+            displayComputerChoice.textContent = `Computer chose ${compChoice}`
+            result = playRound(compChoice, getPlayerChoice('scissors'))
             break;
     }
+
+    console.log(`\nResult is: ${result}`)
+    displayRoundWinner.textContent = roundWinnerMessage(result)
+
+    console.log(`Score is: Player: ${playerScore} - Computer: ${computerScore}`)
+    displayOverallWinner.textContent = overallWinnerMessage(playerScore, computerScore)
 })
 
