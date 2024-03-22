@@ -40,7 +40,7 @@ let getPlayerChoice = function(choice) {
             wrongChoice = false;
         }
     }
-    console.log('Inside player choice - button clicked: ' + choice)
+    // console.log('Button clicked: ' + choice + ' - Inside player choice - ')
     return choice;
 }
 // console.log(getPlayerChoice());
@@ -50,7 +50,7 @@ let getPlayerChoice = function(choice) {
 
 function playRound(computerSelection, playerSelection) {
     // Compare the user's choice to the computer's choice
-    console.log(computerSelection)
+    console.log('Computer chose ' + computerSelection + '! - Inside playRound - ')
 
     // When Computer chooses Rock
     if ((computerSelection === "rock") && (playerSelection === "rock")) {
@@ -131,16 +131,16 @@ playerButtons.addEventListener('click', (event) => {
 
     switch(target.id) {
         case 'rock':
-            console.log('Player chose rock!')
-            getPlayerChoice('rock')
+            console.log('\nPlayer chose rock!')
+            playRound(getComputerChoice(), getPlayerChoice('rock'))
             break;
         case 'paper':
-            console.log('Player chose paper!')
-            getPlayerChoice('paper')
+            console.log('\nPlayer chose paper!')
+            playRound(getComputerChoice(), getPlayerChoice('paper'))
             break;
         case 'scissors':
-            console.log('Player chose scissors!')
-            getPlayerChoice('scissors')
+            console.log('\nPlayer chose scissors!')
+            playRound(getComputerChoice(), getPlayerChoice('scissors'))
             break;
     }
 })
