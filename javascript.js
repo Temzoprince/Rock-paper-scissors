@@ -30,21 +30,17 @@ let getComputerChoice = function() {
 // console.log(getComputerChoice());
 
 
-// Ask the user to enter their selection
-let getPlayerChoice = function() {
+// Gets the users choice (rock paper or scissors)
+let getPlayerChoice = function(choice) {
     
     // Player must enter rock, paper or scissors
     let wrongChoice = true;
     while (wrongChoice) {
-        var choice = prompt("Choose Rock, Paper or Scissors:");
-        // Make the player's selection case-insensitive
-        choice = choice.toLowerCase();
-
         if ( (choice === "rock") || (choice === "paper") || (choice === "scissors")) {
             wrongChoice = false;
         }
     }
-
+    console.log('Inside player choice - button clicked: ' + choice)
     return choice;
 }
 // console.log(getPlayerChoice());
@@ -126,7 +122,9 @@ function playRound(computerSelection, playerSelection) {
 // }
 // playGame();
 
-let playerButtons = document.querySelector('#selectionBtns')
+// Buttons select the player's choice
+
+const playerButtons = document.querySelector('#selectionBtns')
 
 playerButtons.addEventListener('click', (event) => {
     let target = event.target;
@@ -134,12 +132,15 @@ playerButtons.addEventListener('click', (event) => {
     switch(target.id) {
         case 'rock':
             console.log('Player chose rock!')
+            getPlayerChoice('rock')
             break;
         case 'paper':
             console.log('Player chose paper!')
+            getPlayerChoice('paper')
             break;
         case 'scissors':
             console.log('Player chose scissors!')
+            getPlayerChoice('scissors')
             break;
     }
 })
