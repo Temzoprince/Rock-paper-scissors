@@ -126,18 +126,20 @@ function playRound(computerSelection, playerSelection) {
 // }
 // playGame();
 
-const rockButton = document.querySelector('#rock')
-const paperButton = document.querySelector('#paper')
-const scissorsButton = document.querySelector('#scissors')
+let playerButtons = document.querySelector('#selectionBtns')
 
-rockButton.addEventListener('click', () => {
-    console.log('Player chose Rock!')
-})
+playerButtons.addEventListener('click', (event) => {
+    let target = event.target;
 
-paperButton.addEventListener('click', () => {
-    console.log('Player chose paper!')
-})
-
-scissorsButton.addEventListener('click', () => {
-    console.log('Player chose scissors!')
+    switch(target.id) {
+        case 'rock':
+            console.log('Player chose rock!')
+            break;
+        case 'paper':
+            console.log('Player chose paper!')
+            break;
+        case 'scissors':
+            console.log('Player chose scissors!')
+            break;
+    }
 })
