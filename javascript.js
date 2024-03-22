@@ -107,40 +107,6 @@ function overallWinnerMessage(playerScore, computerScore) {
     }
 }
 
-    // Play a game of Rock, Paper Scissors
-
-// function playGame() {
-//     alert("Welcome to Rock Paper Scissors");
-//     let playerScore = 0;
-//     let computerScore = 0;
-//     // Run the game 5 times
-//     for (let i = 0; i < 5; i++) {
-//         // During each round, record who wins
-//         let result = playRound(getComputerChoice(), getPlayerChoice())
-//         if (result === "win") {
-//             playerScore++
-//         } else if (result === "lose") {
-//             computerScore++
-//         } else {
-//             playerScore++
-//             computerScore++
-//         }
-//     }
-        
-//     // Display the overall winner and the score
-//     console.log("\n" + "Player score is " + playerScore)
-//     console.log("Computer score is " + computerScore)
-
-//     if (playerScore > computerScore) {
-//         console.log("\nYou Win! Congratulations!")
-//     } else if (playerScore < computerScore) {
-//         console.log("\nYou lose. Try again next time.")
-//     } else {
-//         console.log("\nIts a draw! Give it another shot.")
-//     }
-// }
-// playGame();
-
 // Buttons select the player's choice
 
 const playerButtons = document.querySelector('#selectionBtns')
@@ -226,4 +192,3 @@ playerButtons.addEventListener('click', (event) => {
 
     displayOverallWinner.textContent = overallWinnerMessage(playerScore, computerScore)
 })
-
